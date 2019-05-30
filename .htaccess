@@ -1,0 +1,12 @@
+Options -Indexes
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteRule . index.php
+
+Header set Strict-Transport-Security "max-age=60000; includeSubDomains"
+#Header set X-Frame-Options "deny"
+Header set X-Frame-Options "sameorigin"
+Header set X-Powered-By "Hossein Najafi"
+Header set X-XSS-Protection "1; mode=block"
