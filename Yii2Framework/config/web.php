@@ -52,7 +52,7 @@ $config = [
             'csrfParam'           => '_support_csrf',
             'csrfCookie' => [
                 'httpOnly' => true,
-                'secure'   => true,
+                //'secure'   => true,
                 //'path'     => '/;sameSite=Strict',
             ],
         ],
@@ -63,7 +63,7 @@ $config = [
             'identityCookie' => [
                 'name' => '_support_identity',
                 'httpOnly' => true,
-                'secure' => true,
+                //'secure' => true,
                 //'path'     => '/;sameSite=Strict',
             ],
         ],
@@ -71,7 +71,7 @@ $config = [
             'name'         => '_support_phpsessid',
             'cookieParams' => [
                 'httpOnly' => true,
-                'secure'   => true,
+                //'secure'   => true,
                 //'path'     => '/;sameSite=Strict',
             ],
         ],

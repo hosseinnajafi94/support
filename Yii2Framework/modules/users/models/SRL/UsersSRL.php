@@ -8,7 +8,7 @@ use app\config\components\functions;
 use app\config\widgets\ArrayHelper;
 class UsersSRL {
     /**
-     * @return array [UsersSearchVML $searchModel, ActiveDataProvider $dataProvider]
+     * @return ActiveDataProvider
      */
     public static function searchModel() {
         $module       = Yii::$app->getModule('users');
@@ -43,11 +43,8 @@ class UsersSRL {
      * @param UsersVML $data
      * @return bool
      */
-    public static function insert($data) {
-        if (!$data->validate()) {
-            return false;
-        }
-        if ($data->scenario != 'create') {
+    public static function insert($data, $postParams = []) {
+        if (!$data->load($postParams) || !$data->validate()) {
             return false;
         }
         $userId                      = Yii::$app->user->id;

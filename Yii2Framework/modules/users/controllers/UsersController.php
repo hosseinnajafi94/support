@@ -46,7 +46,7 @@ class UsersController extends Controller {
     }
     public function actionCreate() {
         $model = UsersSRL::newViewModel('create');
-        if ($model->load(Yii::$app->request->post()) && UsersSRL::insert($model)) {
+        if (UsersSRL::insert($model, Yii::$app->request->post())) {
             functions::setSuccessFlash();
             return $this->redirectToView(['id' => $model->id]);
         }
@@ -58,7 +58,7 @@ class UsersController extends Controller {
         if ($model == null) {
             functions::httpNotFound();
         }
-        if ($model->load(Yii::$app->request->post()) && UsersSRL::update($model)) {
+        if (UsersSRL::update($model, Yii::$app->request->post())) {
             functions::setSuccessFlash();
             return $this->redirectToView(['id' => $model->id]);
         }
